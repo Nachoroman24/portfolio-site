@@ -56,8 +56,8 @@
   &__image {
     &-container {
       position: relative;
-      height: 70rem;
-      width: 100rem;
+      height: 75rem;
+      width: 70rem;
 
       // border: 1px solid red;
       background-color: $color-blue-dark;
@@ -111,7 +111,8 @@
 
   &__info {
     position: relative;
-    top: 8rem;
+    top: 4rem;
+    width: 45rem;
 
     height: fit-content;
     padding: 1rem;
@@ -310,7 +311,7 @@
 
   &-left {
     align-self: flex-start;
-    margin-left: 22rem;
+    margin-left: 20rem;
 
     @media (max-width: 1700px) {
       margin-left: 11rem;
@@ -321,6 +322,7 @@
     }
 
     & .project__info {
+      
       left: -8rem;
       margin-right: -2rem;
 
@@ -402,3 +404,4 @@
   align-items: center;
   justify-content: flex-start;
 }
+
