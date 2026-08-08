@@ -6,6 +6,32 @@ import { doc } from 'prettier';
 window.onload = function () {
   canvasDotsBg();
   canvasDots();
+
+  const globeContainer = document.getElementById('rrii-globe');
+if (globeContainer) {
+  fetch('https://raw.githubusercontent.com/vasturiano/globe.gl/master/example/datasets/ne_110m_admin_0_countries.geojson')
+    .then((res) => res.json())
+    .then((countries) => {
+      const myGlobe = Globe()(globeContainer)
+        .backgroundColor('rgba(0,0,0,0)')
+        .showGlobe(false)
+        .showAtmosphere(true)
+        .atmosphereColor('rgb(120,220,255)')
+        .atmosphereAltitude(0.35)
+        .hexPolygonsData(countries.features)
+        .hexPolygonResolution(3)
+        .hexPolygonMargin(0.6)
+        .hexPolygonUseDots(true)
+        .hexPolygonColor(() => 'rgb(150,230,255)')
+        .hexPolygonAltitude(0.01)
+        .width(440)
+        .height(440);
+
+      myGlobe.controls().autoRotate = true;
+      myGlobe.controls().autoRotateSpeed = 1.5;
+      myGlobe.controls().enableZoom = false;
+    });
+}
 };
 
 // loads in about section on scroll
@@ -232,4 +258,6 @@ document.querySelector('#form-submit').addEventListener('click', () => {
       document.querySelector('.contact__form').reset();
     });
   }
+  
+
 });
